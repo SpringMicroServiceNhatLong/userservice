@@ -1,0 +1,22 @@
+resilience4j:
+  retry:
+    instances:
+      # Exception vs Exponential Interval: Loi vs Cap So Nhan
+      throwingExceptionVsInterval:
+        maxRetryAttempts: 3
+        waitDuration: 1
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+        retryExceptions:
+          - java.lang.Exception
+  ratelimiter:
+    instances:
+      # Multiple RateLimiter: Nhieu RateLimiter
+      multipleRateLimiters_rps_limiter:
+        limitForPeriod: 1
+        limitRefreshPeriod: 4s
+        timeoutDuration: 1s
+      multipleRateLimiters_rpm_limiter:
+        limitForPeriod: 5
+        limitRefreshPeriod: 1m
+        timeoutDuration: 2s

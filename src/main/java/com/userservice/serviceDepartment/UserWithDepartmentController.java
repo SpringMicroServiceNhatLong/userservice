@@ -1,5 +1,7 @@
 package com.userservice.serviceDepartment;
 
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,6 @@ public class UserWithDepartmentController {
 
     @GetMapping("userwithdeparment/{id}")
     public UserVsDepartment getUserWithDep(@PathVariable("id") Long id){
-        return service.getUserWithDepartment(id);
+        return service.rpsLimitedSearch(id);
     }
 }

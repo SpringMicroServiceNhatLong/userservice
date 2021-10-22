@@ -23,6 +23,13 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
 	implementation 'org.springframework.cloud:spring-cloud-starter-config:3.0.4'
+
+	// https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-spring-boot2
+	implementation group: 'io.github.resilience4j', name: 'resilience4j-spring-boot2', version: '1.7.0'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 
 test {
